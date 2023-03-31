@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
  * @author Bruno Ramirez
  **/
 @Service
-public class ProductDeleteService {
-    private ProductDeleteService productDeleteService;
+public class ProductDeleteUseCase {
+    private ProductDeleteUseCase productDeleteService;
 
-    public ProductDeleteService(ProductDeleteService productDeleteService) {
+    public ProductDeleteUseCase(ProductDeleteUseCase productDeleteService) {
         this.productDeleteService = productDeleteService;
     }
 

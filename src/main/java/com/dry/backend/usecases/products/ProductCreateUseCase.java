@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
  * @author Bruno Ramirez
  **/
 @Service
-public class ProductCreateService {
+public class ProductCreateUseCase {
     private ProductCreateService productCreateService;
 
-    public ProductCreateService(ProductCreateService productCreateService) {
+    public ProductCreateUseCase(ProductCreateService productCreateService) {
         this.productCreateService = productCreateService;
     }
 

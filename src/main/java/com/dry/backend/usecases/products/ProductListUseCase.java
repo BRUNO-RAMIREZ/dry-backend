@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
  * @author Bruno Ramirez
  **/
 @Service
-public class ProductListService {
+public class ProductListUseCase {
     private ProductListService productListService;
 
-    public ProductListService(ProductListService productListService) {
+    public ProductListUseCase(ProductListService productListService) {
         this.productListService = productListService;
     }
 
