@@ -1,11 +1,12 @@
 package com.dry.backend.controller.products;
 
-import com.dry.backend.dto.products.request.ProductCreateRequest;
-import com.dry.backend.dto.products.response.ProductCreateResponse;
-import com.dry.backend.usecases.products.ProductCreateUseCase;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.dry.backend.dto.products.request.ProductCreateRequest;
+import com.dry.backend.dto.products.response.ProductCreateResponse;
+import com.dry.backend.usecases.products.ProductCreateUseCase;
 
 /**
  * @author Bruno Ramirez

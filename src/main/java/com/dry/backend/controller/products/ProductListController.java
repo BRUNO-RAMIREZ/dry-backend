@@ -1,9 +1,10 @@
 package com.dry.backend.controller.products;
 
-import com.dry.backend.dto.products.response.ProductListResponse;
-import com.dry.backend.usecases.products.ProductListUseCase;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.dry.backend.dto.products.response.ProductListResponse;
+import com.dry.backend.usecases.products.ProductListUseCase;
 
 /**
  * @author Bruno Ramirez
