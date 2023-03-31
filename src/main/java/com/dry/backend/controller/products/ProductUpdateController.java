@@ -1,5 +1,8 @@
 package com.dry.backend.controller.products;
 
+import com.dry.backend.dto.products.request.ProductUpdateRequest;
+import com.dry.backend.dto.products.response.ProductUpdateResponse;
+import com.dry.backend.usecases.products.ProductUpdateUseCase;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +20,6 @@ public class ProductUpdateController {
 
     @PutMapping("/products/{id}")
     public ProductUpdateResponse updateProduct(@PathVariable ProductUpdateRequest productUpdateRequest) {
-        productUpdateUseCase.execute(productUpdateRequest);
+        return productUpdateUseCase.execute(productUpdateRequest);
     }
 }

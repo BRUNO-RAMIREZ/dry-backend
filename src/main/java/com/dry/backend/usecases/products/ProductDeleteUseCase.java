@@ -1,5 +1,6 @@
 package com.dry.backend.usecases.products;
 
+import com.dry.backend.repository.services.ProductDeleteService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,13 +8,13 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class ProductDeleteUseCase {
-    private ProductDeleteUseCase productDeleteService;
+    private ProductDeleteService productDeleteService;
 
-    public ProductDeleteUseCase(ProductDeleteUseCase productDeleteService) {
+    public ProductDeleteUseCase(ProductDeleteService productDeleteService) {
         this.productDeleteService = productDeleteService;
     }
 
     public void execute(Long id) {
-        return productDeleteService.deleteById(id);
+        productDeleteService.deleteById(id);
     }
 }

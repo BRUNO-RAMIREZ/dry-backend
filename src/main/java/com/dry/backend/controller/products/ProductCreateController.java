@@ -1,5 +1,8 @@
 package com.dry.backend.controller.products;
 
+import com.dry.backend.dto.products.request.ProductCreateRequest;
+import com.dry.backend.dto.products.response.ProductCreateResponse;
+import com.dry.backend.usecases.products.ProductCreateUseCase;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +19,6 @@ public class ProductCreateController {
 
     @PostMapping("/products/create")
     public ProductCreateResponse createProduct(ProductCreateRequest request) {
-        productCreateUseCase.execute(request);
+        return productCreateUseCase.execute(request);
     }
 }
