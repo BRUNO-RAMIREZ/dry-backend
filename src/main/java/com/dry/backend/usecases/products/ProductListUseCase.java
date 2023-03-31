@@ -1,7 +1,7 @@
 package com.dry.backend.usecases.products;
 
 import com.dry.backend.dto.products.response.ProductListResponse;
-import com.dry.backend.repository.services.ProductListService;
+import com.dry.backend.services.products.ProductListService;
 import org.springframework.stereotype.Service;
 
 /**
