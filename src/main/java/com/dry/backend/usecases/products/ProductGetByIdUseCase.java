@@ -1,5 +1,6 @@
 package com.dry.backend.usecases.products;
 
+import com.dry.backend.dto.products.response.ProductGetByIdResponse;
 import org.springframework.stereotype.Service;
 
 /**

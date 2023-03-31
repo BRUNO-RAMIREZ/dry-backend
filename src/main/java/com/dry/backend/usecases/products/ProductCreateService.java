@@ -1,5 +1,7 @@
 package com.dry.backend.usecases.products;
 
+import com.dry.backend.dto.products.request.ProductCreateRequest;
+import com.dry.backend.dto.products.response.ProductCreateResponse;
 import org.springframework.stereotype.Service;
 
 /**
