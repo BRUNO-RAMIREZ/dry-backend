@@ -1,6 +1,7 @@
 package com.dry.backend.controller.products;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dry.backend.dto.products.response.ProductListResponse;
@@ -17,8 +18,8 @@ public class ProductListController {
         this.productListUseCase = productListUseCase;
     }
 
-    @GetMapping("/products")
-    public ProductListResponse list() {
-        return productListUseCase.execute();
+    @GetMapping("/products/{name}")
+    public ProductListResponse list(@PathVariable String name) {
+        return productListUseCase.execute(name);
     }
 }

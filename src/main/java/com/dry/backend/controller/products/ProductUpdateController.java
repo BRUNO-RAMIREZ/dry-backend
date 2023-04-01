@@ -2,6 +2,7 @@ package com.dry.backend.controller.products;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dry.backend.dto.products.request.ProductUpdateRequest;
@@ -20,7 +21,7 @@ public class ProductUpdateController {
     }
 
     @PutMapping("/products/{id}")
-    public ProductUpdateResponse updateProduct(@PathVariable ProductUpdateRequest productUpdateRequest) {
-        return productUpdateUseCase.execute(productUpdateRequest);
+    public ProductUpdateResponse updateProduct(@PathVariable Long id, @RequestBody ProductUpdateRequest productUpdateRequest) {
+        return productUpdateUseCase.execute(id, productUpdateRequest);
     }
 }

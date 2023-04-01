@@ -15,7 +15,7 @@ public class ProductListUseCase {
         this.productListService = productListService;
     }
 
-    public ProductListResponse execute() {
-        return productListService.getProducts();
+    public ProductListResponse execute(String name) {
+        return productListService.getProducts(name);
     }
 }

@@ -1,10 +1,21 @@
 package com.dry.backend.dto.products.request;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author Bruno Ramirez
  **/
-public class ProductUpdateRequest {
 
+@Getter
+@Setter
+public class ProductUpdateRequest {
+    private String name;
+    private String description;
+    private String image;
+    private Double purchasePrice;
+    private Double salePrice;
+    private Double stock;
     public ProductUpdateRequest() {
     }
 }
