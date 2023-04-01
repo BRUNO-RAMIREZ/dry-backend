@@ -16,6 +16,9 @@ public class ProductListUseCase {
     }
 
     public ProductListResponse execute(String name) {
-        return productListService.getProducts(name);
+        if (name == null || name.isEmpty()) {
+           // return productListService.getAllProducts(name);
+        }
+        return null;
     }
 }

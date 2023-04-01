@@ -1,7 +1,9 @@
 package com.dry.backend.controller.products;
 
+import com.dry.backend.constant.Constants;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dry.backend.usecases.products.ProductDeleteUseCase;
@@ -10,6 +12,7 @@ import com.dry.backend.usecases.products.ProductDeleteUseCase;
  * @author Bruno Ramirez
  **/
 @RestController
+@RequestMapping(Constants.BasePath.PRODUCTS)
 public class ProductDeleteController {
     private final ProductDeleteUseCase productDeleteUseCase;
 
@@ -17,7 +20,7 @@ public class ProductDeleteController {
         this.productDeleteUseCase = productDeleteUseCase;
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productDeleteUseCase.execute(id);
     }
