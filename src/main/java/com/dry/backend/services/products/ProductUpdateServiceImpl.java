@@ -1,9 +1,10 @@
 package com.dry.backend.services.products;
 
+import org.springframework.stereotype.Service;
+
 import com.dry.backend.domain.products.Product;
 import com.dry.backend.mapper.products.ProductMapper;
 import com.dry.backend.repository.products.ProductRepository;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Bruno Ramirez

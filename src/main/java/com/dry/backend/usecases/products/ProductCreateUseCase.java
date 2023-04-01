@@ -1,13 +1,13 @@
 package com.dry.backend.usecases.products;
 
-import com.dry.backend.domain.products.Product;
-import com.dry.backend.mapper.products.ProductMapper;
-import com.dry.backend.validator.Validator;
 import org.springframework.stereotype.Service;
 
+import com.dry.backend.services.products.ProductCreateService;
+import com.dry.backend.mapper.products.ProductMapper;
+import com.dry.backend.validator.Validator;
+import com.dry.backend.domain.products.Product;
 import com.dry.backend.dto.products.request.ProductCreateRequest;
 import com.dry.backend.dto.products.response.ProductCreateResponse;
-import com.dry.backend.services.products.ProductCreateService;
 
 /**
  * @author Bruno Ramirez

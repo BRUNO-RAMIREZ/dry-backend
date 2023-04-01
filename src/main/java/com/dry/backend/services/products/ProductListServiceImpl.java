@@ -1,9 +1,9 @@
 package com.dry.backend.services.products;
 
-import com.dry.backend.domain.products.Product;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
+import com.dry.backend.domain.products.Product;
 
 /**
  * @author Bruno Ramirez

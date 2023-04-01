@@ -1,6 +1,5 @@
 package com.dry.backend.dto.products.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

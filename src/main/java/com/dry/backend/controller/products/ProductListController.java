@@ -1,10 +1,7 @@
 package com.dry.backend.controller.products;
 
 import com.dry.backend.constant.Constants;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.dry.backend.dto.products.response.ProductListResponse;
 import com.dry.backend.usecases.products.ProductListUseCase;
@@ -12,6 +9,7 @@ import com.dry.backend.usecases.products.ProductListUseCase;
 /**
  * @author Bruno Ramirez
  **/
+@CrossOrigin
 @RestController
 @RequestMapping(Constants.BasePath.PRODUCTS)
 public class ProductListController {

@@ -1,8 +1,8 @@
 package com.dry.backend.usecases.products;
-
-import com.dry.backend.dto.products.response.ProductListResponse;
-import com.dry.backend.services.products.ProductListService;
 import org.springframework.stereotype.Service;
+
+import com.dry.backend.services.products.ProductListService;
+import com.dry.backend.dto.products.response.ProductListResponse;
 
 /**
  * @author Bruno Ramirez

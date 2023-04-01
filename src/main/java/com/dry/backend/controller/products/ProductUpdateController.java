@@ -10,6 +10,7 @@ import com.dry.backend.usecases.products.ProductUpdateUseCase;
 /**
  * @author Bruno Ramirez
  **/
+@CrossOrigin
 @RestController
 @RequestMapping(Constants.BasePath.PRODUCTS)
 public class ProductUpdateController {

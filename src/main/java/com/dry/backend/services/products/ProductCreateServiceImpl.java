@@ -1,6 +1,5 @@
 package com.dry.backend.services.products;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dry.backend.domain.products.Product;

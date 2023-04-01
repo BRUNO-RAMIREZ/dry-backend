@@ -1,7 +1,8 @@
 package com.dry.backend.usecases.products;
 
-import com.dry.backend.services.products.ProductDeleteService;
 import org.springframework.stereotype.Service;
+
+import com.dry.backend.services.products.ProductDeleteService;
 
 /**
  * @author Bruno Ramirez
