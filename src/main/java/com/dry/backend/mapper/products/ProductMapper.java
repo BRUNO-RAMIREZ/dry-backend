@@ -1,14 +1,15 @@
 package com.dry.backend.mapper.products;
 
 import com.dry.backend.dto.products.request.ProductUpdateRequest;
-import com.dry.backend.dto.products.response.ProductGetByIdResponse;
-import com.dry.backend.dto.products.response.ProductUpdateResponse;
+import com.dry.backend.dto.products.response.*;
 import com.dry.backend.usecases.products.ProductUpdateUseCase;
 import org.springframework.stereotype.Service;
 
 import com.dry.backend.domain.products.Product;
 import com.dry.backend.dto.products.request.ProductCreateRequest;
-import com.dry.backend.dto.products.response.ProductCreateResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Bruno Ramirez
@@ -81,6 +82,28 @@ public class ProductMapper {
         response.setPurchasePrice(product.getPurchasePrice());
         response.setSalePrice(product.getSalePrice());
         response.setStock(product.getStock());
+        return response;
+    }
+
+    public ProductResponse fromProductToProductResponse(Product product) {
+        ProductResponse response = new ProductResponse();
+        response.setId(product.getId());
+        response.setName(product.getName());
+        response.setDescription(product.getDescription());
+        response.setImage(product.getImage());
+        response.setPurchasePrice(product.getPurchasePrice());
+        response.setSalePrice(product.getSalePrice());
+        response.setStock(product.getStock());
+        return response;
+    }
+
+    public ProductGetAllResponse fromProductListToProductGetAllResponse(List<Product> products) {
+        ProductGetAllResponse response = new ProductGetAllResponse();
+        List<ProductResponse> productResponses = new ArrayList<>();
+        for (Product product : products) {
+            productResponses.add(fromProductToProductResponse(product));
+        }
+        response.setProducts(productResponses);
         return response;
     }
 }
