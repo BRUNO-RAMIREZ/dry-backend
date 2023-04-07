@@ -17,6 +17,7 @@ public class ProductCreateUseCase {
     private ProductCreateService productCreateService;
     private ProductMapper productMapper;
     private Validator validator;
+
     public ProductCreateUseCase(ProductCreateService productCreateService,
                                 ProductMapper productMapper,
                                 Validator validator) {
@@ -27,13 +28,11 @@ public class ProductCreateUseCase {
 
     public ProductCreateResponse execute(ProductCreateRequest request) {
         Product product = productMapper.fromProductCreateRequestToProduct(request);
-        if (validator.validate(product)) {
-            return productMapper.fromProductToProductCreateResponse(
-                    productCreateService.save(
-                            productMapper.fromProductCreateRequestToProduct(request)
-                    )
-            );
-        }
-        return null;
+        return productMapper.fromProductToProductCreateResponse(
+                productCreateService.save(
+                        productMapper.fromProductCreateRequestToProduct(request)
+                )
+        );
+
     }
 }

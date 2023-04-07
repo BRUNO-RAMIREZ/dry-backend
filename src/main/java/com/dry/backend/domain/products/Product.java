@@ -21,10 +21,12 @@ public class Product {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "description")
+    @Lob
+    @Column(name = "description", length = 10000000)
     private String description;
 
-    @Column(name = "image")
+    @Lob
+    @Column(name = "image", length = 10000000)
     private String image;
 
     @Column(name = "purchase_price", nullable = false)
