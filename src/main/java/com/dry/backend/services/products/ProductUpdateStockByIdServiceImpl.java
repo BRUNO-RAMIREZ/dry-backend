@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
  * @author Bruno Ramirez
  **/
 @Service
-public class ProdoctUpdateStockByIdServiceImpl implements ProductUpdateStockByIdService {
+public class ProductUpdateStockByIdServiceImpl implements ProductUpdateStockByIdService {
     private ProductRepository productRepository;
 
+    public ProductUpdateStockByIdServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
     @Override
     public void updateStockById(Long id) {
         Product productFound = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
