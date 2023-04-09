@@ -1,18 +1,24 @@
 package com.dry.backend.dto.products.response;
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.util.List;
 
 /**
  * @author Bruno Ramirez
  **/
-@Getter
-@Setter
+
 public class ProductGetByNameResponse {
     private List<ProductResponse> products;
 
     public ProductGetByNameResponse() {
+    }
+
+    public List<ProductResponse> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductResponse> products) {
+        this.products = products;
     }
 }
