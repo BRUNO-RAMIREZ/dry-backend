@@ -15,7 +15,6 @@ import javax.persistence.Lob;
 public class ProductCreateResponse {
     private Long id;
     private String name;
-    @Lob
     private String description;
     @Lob
     private String image;
