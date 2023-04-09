@@ -106,4 +106,14 @@ public class ProductMapper {
         response.setProducts(productResponses);
         return response;
     }
+
+    public ProductGetByNameResponse fromProductListToProductGetByNameResponse(List<Product> products) {
+        ProductGetByNameResponse response = new ProductGetByNameResponse();
+        List<ProductResponse> productResponses = new ArrayList<>();
+        for (Product product : products) {
+            productResponses.add(fromProductToProductResponse(product));
+        }
+        response.setProducts(productResponses);
+        return response;
+    }
 }

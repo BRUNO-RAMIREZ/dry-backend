@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dry.backend.domain.products.Product;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -11,4 +12,6 @@ import java.util.Optional;
  **/
 public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findById(Long id);
+
+    List<Product> findAllByName(String name);
 }
