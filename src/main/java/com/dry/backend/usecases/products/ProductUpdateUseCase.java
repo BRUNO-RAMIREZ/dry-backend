@@ -27,12 +27,7 @@ public class ProductUpdateUseCase {
     }
 
     public ProductUpdateResponse execute(Long id, ProductUpdateRequest request) {
-        Product product = productMapper.fromProductUpdateRequestToProduct(request);
-        if (validator.validate(product)) {
-            return productMapper.fromProductToProductUpdateResponse(
-                    productUpdateService.update(id, productMapper.fromProductUpdateRequestToProduct(request))
-            );
-        }
-        return null;
+        return productMapper.fromProductToProductUpdateResponse(
+                productUpdateService.update(id, productMapper.fromProductUpdateRequestToProduct(request)));
     }
 }
