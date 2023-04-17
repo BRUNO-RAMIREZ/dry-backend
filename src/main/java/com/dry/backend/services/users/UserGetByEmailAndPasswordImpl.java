@@ -4,21 +4,19 @@ import com.dry.backend.domain.users.User;
 import com.dry.backend.repository.users.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-
 /**
  * @author Bruno Ramirez
  **/
 @Service
-public class UserCreateServiceImpl implements UserCreateService{
+public class UserGetByEmailAndPasswordImpl implements UserGetByEmailAndPasswordService {
     private UserRepository userRepository;
 
-    public UserCreateServiceImpl(UserRepository userRepository) {
+    public UserGetByEmailAndPasswordImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public User save(User user) {
-        return userRepository.save(user);
+    public User getUserByEmailAndPassword(String email, String password) {
+        return userRepository.findByEmailAndPassword(email, password);
     }
 }

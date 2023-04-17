@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(Constants.BasePath.USERS)
 public class UserCreateController {
-    private final UserCreateUseCase userCreateUseCase;
+
+    private UserCreateUseCase userCreateUseCase;
 
     public UserCreateController(UserCreateUseCase userCreateUseCase) {
         this.userCreateUseCase = userCreateUseCase;
     }
 
     @PostMapping("/create")
-    public UserCreateResponse createUser(@RequestBody UserCreateRequest request) {
+    public UserCreateResponse createUser(@RequestBody UserCreateRequest request) throws RuntimeException{
         return userCreateUseCase.execute(request);
     }
 }

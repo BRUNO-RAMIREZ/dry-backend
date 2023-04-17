@@ -1,11 +1,9 @@
 package com.dry.backend.dto.users.response;
 
-import java.util.Collection;
-
 /**
  * @author Bruno Ramirez
  **/
-public class UserCreateResponse {
+public class UserGetByEmailResponse {
     private Long id;
     private String name;
     private String lastName;
@@ -14,7 +12,7 @@ public class UserCreateResponse {
     private String username;
     private String password;
 
-    public UserCreateResponse() {
+    public UserGetByEmailResponse() {
     }
 
     public Long getId() {

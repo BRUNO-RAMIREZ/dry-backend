@@ -1,7 +1,9 @@
 package com.dry.backend.mapper.users;
 
 import com.dry.backend.domain.users.User;
+import com.dry.backend.dto.users.request.UserAuthRequest;
 import com.dry.backend.dto.users.request.UserCreateRequest;
+import com.dry.backend.dto.users.response.UserAuthResponse;
 import com.dry.backend.dto.users.response.UserCreateResponse;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,6 @@ public class UsersMapper {
         user.setPhone(request.getPhone());
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
-        user.setRol(request.getRol());
         return user;
     }
 
@@ -31,7 +32,18 @@ public class UsersMapper {
         response.setPhone(user.getPhone());
         response.setUsername(user.getUsername());
         response.setPassword(user.getPassword());
-        response.setRol(user.getRol());
+        return response;
+    }
+
+    public UserAuthResponse fromUserToUserAuthResponse(User user) {
+        UserAuthResponse response = new UserAuthResponse();
+        response.setId(user.getId());
+        response.setName(user.getName());
+        response.setLastName(user.getLastName());
+        response.setEmail(user.getEmail());
+        response.setPhone(user.getPhone());
+        response.setUsername(user.getUsername());
+        response.setPassword(user.getPassword());
         return response;
     }
 }
