@@ -22,6 +22,6 @@ public class UserChangePasswordByIdController {
     @PutMapping("/{id}/changePassword/{password}")
     public void setNewPasswordToUser(@PathVariable Long id,
                                      @PathVariable String password) {
-        return userChangePasswordByIdUseCase.execute(id, password);
+        userChangePasswordByIdUseCase.execute(id, password);
     }
 }
