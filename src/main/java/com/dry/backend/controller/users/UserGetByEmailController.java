@@ -21,7 +21,7 @@ public class UserGetByEmailController {
     }
 
     @GetMapping("/getByEmail/{email}")
-    public UserGetByEmailResponse getUserByEmail(@RequestParam String email) {
+    public UserGetByEmailResponse getUserByEmail(@PathVariable String email) {
         return userGetByEmailUseCase.execute(email);
     }
 }
