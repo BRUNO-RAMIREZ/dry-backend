@@ -26,6 +26,7 @@ public class UsersMapper {
         user.setPhone(request.getPhone());
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
+        user.setImage(request.getImage());
         return user;
     }
 
@@ -38,6 +39,7 @@ public class UsersMapper {
         response.setPhone(user.getPhone());
         response.setUsername(user.getUsername());
         response.setPassword(user.getPassword());
+        response.setImage(user.getImage());
         return response;
     }
 
