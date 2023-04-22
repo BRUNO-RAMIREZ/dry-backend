@@ -18,7 +18,7 @@ public class UserGetByIdController {
         this.userGetByIdUseCase = userGetByIdUseCase;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/findById")
     public UserGetByIdResponse getUserById(@PathVariable Long id) {
         return userGetByIdUseCase.execute(id);
     }
