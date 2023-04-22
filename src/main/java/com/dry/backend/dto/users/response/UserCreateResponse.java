@@ -14,6 +14,8 @@ public class UserCreateResponse {
     private String username;
     private String password;
 
+    private String image;
+
     public UserCreateResponse() {
     }
 
@@ -71,5 +73,13 @@ public class UserCreateResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

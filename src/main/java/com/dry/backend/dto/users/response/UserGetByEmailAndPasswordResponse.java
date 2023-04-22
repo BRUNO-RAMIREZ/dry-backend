@@ -12,6 +12,8 @@ public class UserGetByEmailAndPasswordResponse {
     private String username;
     private String password;
 
+    private String image;
+
     public UserGetByEmailAndPasswordResponse() {
     }
 
@@ -69,5 +71,13 @@ public class UserGetByEmailAndPasswordResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

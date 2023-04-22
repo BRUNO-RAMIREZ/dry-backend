@@ -1,52 +1,19 @@
-package com.dry.backend.domain.users;
-
-import javax.persistence.*;
+package com.dry.backend.dto.users.response;
 
 /**
  * @author Bruno Ramirez
  **/
-@Entity
-@Table(name = "user")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserGetByIdResponse {
     private Long id;
-
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "last_name", nullable = false)
     private String lastName;
-
-    @Column(name = "email", nullable = false)
     private String email;
-
-    @Column(name = "phone")
     private Long phone;
-
-    @Column(name = "username", nullable = false)
     private String username;
-
-    @Column(name = "password", nullable = false)
     private String password;
 
-    @Lob
-    @Column(name = "image", length = 10000000)
     private String image;
-
-    public User() {
-    }
-
-
-    public User(Long id, String name, String lastName, String email, Long phone, String username, String password, String image) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.username = username;
-        this.password = password;
-        this.image = image;
+    public UserGetByIdResponse() {
     }
 
     public Long getId() {
@@ -113,4 +80,3 @@ public class User {
         this.image = image;
     }
 }
-

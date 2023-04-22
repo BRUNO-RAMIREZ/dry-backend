@@ -12,6 +12,8 @@ public class UserAuthResponse {
     private String username;
     private String password;
 
+    private String image;
+
     public UserAuthResponse() {
     }
 
@@ -69,5 +71,13 @@ public class UserAuthResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

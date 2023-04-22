@@ -1,9 +1,7 @@
 package com.dry.backend.controller.users;
 
 import com.dry.backend.constant.Constants;
-import com.dry.backend.dto.users.response.UserGetByEmailResponse;
 import com.dry.backend.usecases.users.UserChangePasswordByIdUseCase;
-import com.dry.backend.usecases.users.UserGetByEmailUseCase;
 import org.springframework.web.bind.annotation.*;
 
 /**
