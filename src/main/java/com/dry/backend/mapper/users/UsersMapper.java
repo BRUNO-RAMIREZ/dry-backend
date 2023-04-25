@@ -121,6 +121,7 @@ public class UsersMapper {
         response.setPhone(user.getPhone());
         response.setUsername(user.getUsername());
         response.setPassword(user.getPassword());
+        response.setImage(user.getImage());
         return response;
     }
 
