@@ -1,12 +1,10 @@
 package com.dry.backend.mapper.products;
 
-import com.dry.backend.dto.products.request.ProductUpdateRequest;
-import com.dry.backend.dto.products.response.*;
-import com.dry.backend.usecases.products.ProductUpdateUseCase;
-import org.springframework.stereotype.Service;
-
 import com.dry.backend.domain.products.Product;
 import com.dry.backend.dto.products.request.ProductCreateRequest;
+import com.dry.backend.dto.products.request.ProductUpdateRequest;
+import com.dry.backend.dto.products.response.*;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,5 +113,21 @@ public class ProductMapper {
         }
         response.setProducts(productResponses);
         return response;
+    }
+
+    public List<Product> fromProductCreateRequestListToProductList(List<ProductCreateRequest> productCreateRequests) {
+        List<Product> products = new ArrayList<>();
+        for (ProductCreateRequest productCreateRequest : productCreateRequests) {
+            products.add(fromProductCreateRequestToProduct(productCreateRequest));
+        }
+        return products;
+    }
+
+    public List<ProductCreateResponse> fromProductListToProductCreateResponseList(List<Product> products) {
+        List<ProductCreateResponse> productCreateResponses = new ArrayList<>();
+        for (Product product : products) {
+            productCreateResponses.add(fromProductToProductCreateResponse(product));
+        }
+        return productCreateResponses;
     }
 }

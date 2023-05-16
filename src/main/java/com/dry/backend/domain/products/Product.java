@@ -1,8 +1,10 @@
 package com.dry.backend.domain.products;
 
 
+import com.dry.backend.domain.sale.Sale;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Bruno Ramirez
@@ -36,10 +38,8 @@ public class Product {
     @Column(name = "stock")
     private Double stock;
 
-//    @Temporal(TemporalType.DATE)
-//    @Column(name = "date", nullable = false)
-//    private Date dateCreated;
-
+    @ManyToMany(mappedBy = "products")
+    private List<Sale> sales;
 
     public Long getId() {
         return id;

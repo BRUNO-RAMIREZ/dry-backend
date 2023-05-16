@@ -12,5 +12,7 @@ public class Constants {
         }
         public static final String PRODUCTS = "/products";
         public static final String USERS = "/users";
+
+        public static final String SALES = "/sales";
     }
 }
