@@ -130,4 +130,12 @@ public class ProductMapper {
         }
         return productCreateResponses;
     }
+
+    public List<ProductResponse> fromProductListToProductResponseList(List<Product> products) {
+        List<ProductResponse> productResponses = new ArrayList<>();
+        for (Product product : products) {
+            productResponses.add(fromProductToProductResponse(product));
+        }
+        return productResponses;
+    }
 }

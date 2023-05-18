@@ -5,12 +5,16 @@ import com.dry.backend.domain.products.Product;
 import com.dry.backend.domain.sale.Sale;
 import com.dry.backend.dto.clients.response.ClientCreateResponse;
 import com.dry.backend.dto.products.response.ProductCreateResponse;
+import com.dry.backend.dto.products.response.ProductResponse;
 import com.dry.backend.dto.sales.request.SaleCreateRequest;
 import com.dry.backend.dto.sales.response.SaleCreateResponse;
+import com.dry.backend.dto.sales.response.SaleListGetAllResponse;
+import com.dry.backend.dto.sales.response.SaleResponse;
 import com.dry.backend.mapper.client.ClientMapper;
 import com.dry.backend.mapper.products.ProductMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,5 +56,29 @@ public class SaleMapper {
         List<ProductCreateResponse> productsCreateResponseList = productMapper.fromProductListToProductCreateResponseList(sale.getProducts());
         saleCreateResponse.setProducts(productsCreateResponseList);
         return saleCreateResponse;
+    }
+
+    public SaleListGetAllResponse fromSaleListToSaleListGetAllResponse(List<Sale> sales) {
+        SaleListGetAllResponse response = new SaleListGetAllResponse();
+        List<SaleResponse> saleResponses = new ArrayList<>();
+        for (Sale sale : sales) {
+            saleResponses.add(fromSaleToSaleResponse(sale));
+        }
+        response.setSales(saleResponses);
+        return response;
+    }
+
+    public SaleResponse fromSaleToSaleResponse(Sale sale) {
+        SaleResponse saleResponse = new SaleResponse();
+        saleResponse.setId(sale.getId());
+        saleResponse.setCode(sale.getCode());
+        saleResponse.setSaleDate(sale.getSaleDate());
+        saleResponse.setTotal(sale.getTotal());
+        saleResponse.setState(sale.getState());
+        ClientCreateResponse clientCreateResponse = clientMapper.fromClientToClientCreateResponse(sale.getClient());
+        saleResponse.setClient(clientCreateResponse);
+        List<ProductResponse> productsCreateResponseList = productMapper.fromProductListToProductResponseList(sale.getProducts());
+        saleResponse.setProductsResponse(productsCreateResponseList);
+        return saleResponse;
     }
 }
