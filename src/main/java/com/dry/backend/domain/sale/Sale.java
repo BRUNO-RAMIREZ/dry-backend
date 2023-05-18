@@ -23,7 +23,7 @@ public class Sale {
     private String code;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "date_sale", nullable = true)
+    @Column(name = "sale_date", nullable = true)
     private Date saleDate;
 
     @Column(name = "total", nullable = true)

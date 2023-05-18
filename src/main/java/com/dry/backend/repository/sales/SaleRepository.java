@@ -16,4 +16,6 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
     Optional<Sale> findById(Long id);
 
     List<Sale> findAllBySaleDate(Date saleDate);
+
+    Sale save(Sale sale);
 }

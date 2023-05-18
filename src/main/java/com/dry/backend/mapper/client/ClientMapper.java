@@ -2,7 +2,9 @@ package com.dry.backend.mapper.client;
 
 import com.dry.backend.domain.client.Client;
 import com.dry.backend.dto.clients.request.ClientCreateRequest;
+import com.dry.backend.dto.clients.request.ClientUpdateByIdRequest;
 import com.dry.backend.dto.clients.response.ClientCreateResponse;
+import com.dry.backend.dto.clients.response.ClientUpdateByIdResponse;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,5 +26,20 @@ public class ClientMapper {
         clientCreateResponse.setCi(client.getCi());
         clientCreateResponse.setLastName(client.getLastName());
         return clientCreateResponse;
+    }
+
+    public ClientUpdateByIdRequest fromClientToClientUpdateByIdRequest(Client client) {
+        ClientUpdateByIdRequest clientUpdateByIdRequest = new ClientUpdateByIdRequest();
+        clientUpdateByIdRequest.setCi(client.getCi());
+        clientUpdateByIdRequest.setLastName(client.getLastName());
+        return clientUpdateByIdRequest;
+    }
+
+    public ClientUpdateByIdResponse fromClientToClientUpdateByIdResponse(Client client) {
+        ClientUpdateByIdResponse clientUpdateByIdResponse = new ClientUpdateByIdResponse();
+        clientUpdateByIdResponse.setId(client.getId());
+        clientUpdateByIdResponse.setCi(client.getCi());
+        clientUpdateByIdResponse.setLastName(client.getLastName());
+        return clientUpdateByIdResponse;
     }
 }
