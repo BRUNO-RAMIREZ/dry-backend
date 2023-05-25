@@ -16,6 +16,7 @@ import com.dry.backend.dto.sales.response.SaleUpdateByIdResponse;
 import com.dry.backend.mapper.client.ClientMapper;
 import com.dry.backend.mapper.products.ProductMapper;
 import com.dry.backend.repository.products.ProductRepository;
+import com.dry.backend.repository.sales.SaleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,13 +31,18 @@ public class SaleMapper {
 
     private ClientMapper clientMapper;
     private ProductMapper productMapper;
-
     private ProductRepository productRepository;
 
-    public SaleMapper(ClientMapper clientMapper, ProductMapper productMapper, ProductRepository productRepository) {
+    private SaleRepository saleRepository;
+
+    public SaleMapper(ClientMapper clientMapper,
+                      ProductMapper productMapper,
+                      ProductRepository productRepository,
+                      SaleRepository saleRepository) {
         this.clientMapper = clientMapper;
         this.productMapper = productMapper;
         this.productRepository = productRepository;
+        this.saleRepository = saleRepository;
     }
 
     public Sale fromSaleCreateRequestToSale(SaleCreateRequest saleCreateRequest) {
