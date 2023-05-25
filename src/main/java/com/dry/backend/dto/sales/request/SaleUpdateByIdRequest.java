@@ -19,8 +19,8 @@ public class SaleUpdateByIdRequest {
 
     private Boolean state;
 
+    private List<Integer> quantityStockOfProductsSaled;
     private ClientCreateRequest client;
-
     private List<ProductCreateRequest> products;
 
     public SaleUpdateByIdRequest() {
@@ -74,5 +74,11 @@ public class SaleUpdateByIdRequest {
         this.products = products;
     }
 
+    public List<Integer> getQuantityStockOfProductsSaled() {
+        return quantityStockOfProductsSaled;
+    }
 
+    public void setQuantityStockOfProductsSaled(List<Integer> quantityStockOfProductsSaled) {
+        this.quantityStockOfProductsSaled = quantityStockOfProductsSaled;
+    }
 }

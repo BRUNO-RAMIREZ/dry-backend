@@ -16,9 +16,9 @@ public class SaleUpdateByIdResponse {
     private Date saleDate;
 
     private Double total;
-
     private Boolean state;
 
+    private List<Integer> quantityStockOfProductsSaled;
     private ClientUpdateByIdResponse client;
 
     private List<ProductResponse> products;
@@ -80,5 +80,13 @@ public class SaleUpdateByIdResponse {
 
     public void setProducts(List<ProductResponse> products) {
         this.products = products;
+    }
+
+    public List<Integer> getQuantityStockOfProductsSaled() {
+        return quantityStockOfProductsSaled;
+    }
+
+    public void setQuantityStockOfProductsSaled(List<Integer> quantityStockOfProductsSaled) {
+        this.quantityStockOfProductsSaled = quantityStockOfProductsSaled;
     }
 }

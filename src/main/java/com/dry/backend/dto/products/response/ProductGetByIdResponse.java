@@ -10,7 +10,7 @@ public class ProductGetByIdResponse {
     private String image;
     private Double purchasePrice;
     private Double salePrice;
-    private Double stock;
+    private Integer stock;
     public ProductGetByIdResponse() {
     }
 
@@ -62,11 +62,11 @@ public class ProductGetByIdResponse {
         this.salePrice = salePrice;
     }
 
-    public Double getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(Double stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 }

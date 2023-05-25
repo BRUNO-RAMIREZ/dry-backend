@@ -1,11 +1,8 @@
 package com.dry.backend.dto.sales.response;
 
-import com.dry.backend.domain.client.Client;
-import com.dry.backend.domain.products.Product;
 import com.dry.backend.dto.clients.response.ClientCreateResponse;
 import com.dry.backend.dto.products.response.ProductResponse;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +20,8 @@ public class SaleResponse {
     private Double total;
 
     private Boolean state;
+
+    private List<Integer> quantityStockOfProductsSaled;
 
     private ClientCreateResponse client;
 
@@ -87,5 +86,13 @@ public class SaleResponse {
 
     public void setProductsResponse(List<ProductResponse> products) {
         this.products = products;
+    }
+
+    public List<Integer> getQuantityStockOfProductsSaled() {
+        return quantityStockOfProductsSaled;
+    }
+
+    public void setQuantityStockOfProductsSaled(List<Integer> quantityStockOfProductsSaled) {
+        this.quantityStockOfProductsSaled = quantityStockOfProductsSaled;
     }
 }

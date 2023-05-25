@@ -138,4 +138,24 @@ public class ProductMapper {
         }
         return productResponses;
     }
+
+    public List<ProductListResponse> fromProductListToProductListResponseList(List<Product> products) {
+        List<ProductListResponse> productListResponses = new ArrayList<>();
+        for (Product product : products) {
+            productListResponses.add(fromProductToProductListResponse(product));
+        }
+        return productListResponses;
+    }
+
+    public ProductListResponse fromProductToProductListResponse(Product product) {
+        ProductListResponse response = new ProductListResponse();
+        response.setId(product.getId());
+        response.setName(product.getName());
+        response.setDescription(product.getDescription());
+        response.setImage(product.getImage());
+        response.setPurchasePrice(product.getPurchasePrice());
+        response.setSalePrice(product.getSalePrice());
+        response.setStock(product.getStock());
+        return response;
+    }
 }

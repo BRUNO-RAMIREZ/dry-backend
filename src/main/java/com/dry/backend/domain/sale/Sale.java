@@ -32,6 +32,10 @@ public class Sale {
     @Column(name = "state", nullable = true)
     private Boolean state;
 
+    @Column(name = "quantity_stock_of_products_saled")
+    @ElementCollection
+    private List<Integer> quantityStockOfProductsSaled;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
@@ -41,6 +45,15 @@ public class Sale {
             joinColumns = @JoinColumn(name = "sale_id", referencedColumnName = "sale_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "product_id"))
     private List<Product> products;
+
+
+    public List<Integer> getQuantityStockOfProductsSaled() {
+        return quantityStockOfProductsSaled;
+    }
+
+    public void setQuantityStockOfProductsSaled(List<Integer> quantityStockOfProductsSaled) {
+        this.quantityStockOfProductsSaled = quantityStockOfProductsSaled;
+    }
 
     public Long getId() {
         return id;

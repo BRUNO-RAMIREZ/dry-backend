@@ -5,7 +5,7 @@ import com.dry.backend.domain.products.Product;
 import com.dry.backend.domain.sale.Sale;
 import com.dry.backend.dto.clients.response.ClientCreateResponse;
 import com.dry.backend.dto.clients.response.ClientUpdateByIdResponse;
-import com.dry.backend.dto.products.response.ProductCreateResponse;
+import com.dry.backend.dto.products.response.ProductListResponse;
 import com.dry.backend.dto.products.response.ProductResponse;
 import com.dry.backend.dto.sales.request.SaleCreateRequest;
 import com.dry.backend.dto.sales.request.SaleUpdateByIdRequest;
@@ -15,10 +15,12 @@ import com.dry.backend.dto.sales.response.SaleResponse;
 import com.dry.backend.dto.sales.response.SaleUpdateByIdResponse;
 import com.dry.backend.mapper.client.ClientMapper;
 import com.dry.backend.mapper.products.ProductMapper;
+import com.dry.backend.repository.products.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Bruno Ramirez
@@ -29,9 +31,12 @@ public class SaleMapper {
     private ClientMapper clientMapper;
     private ProductMapper productMapper;
 
-    public SaleMapper(ClientMapper clientMapper, ProductMapper productMapper) {
+    private ProductRepository productRepository;
+
+    public SaleMapper(ClientMapper clientMapper, ProductMapper productMapper, ProductRepository productRepository) {
         this.clientMapper = clientMapper;
         this.productMapper = productMapper;
+        this.productRepository = productRepository;
     }
 
     public Sale fromSaleCreateRequestToSale(SaleCreateRequest saleCreateRequest) {
@@ -40,10 +45,15 @@ public class SaleMapper {
         sale.setSaleDate(saleCreateRequest.getSaleDate());
         sale.setTotal(saleCreateRequest.getTotal());
         sale.setState(saleCreateRequest.getState());
+        sale.setQuantityStockOfProductsSaled(saleCreateRequest.getQuantityStockOfProductsSaled());
         Client client = clientMapper.fromClientCreateRequestToClient(saleCreateRequest.getClient());
         sale.setClient(client);
-        List<Product> productsCreateRequestList = productMapper.fromProductCreateRequestListToProductList(saleCreateRequest.getProducts());
-        sale.setProducts(productsCreateRequestList);
+        List<Product> products = saleCreateRequest.getProducts().stream().map((product -> {
+            Product productFound = productRepository.findById(product.getId()).orElseThrow(() -> new RuntimeException("Product not found"));
+            productFound.setStock(product.getStock());
+            return productRepository.save(productFound);
+        })).collect(Collectors.toList());
+        sale.setProducts(products);
         return sale;
     }
 
@@ -54,9 +64,10 @@ public class SaleMapper {
         saleCreateResponse.setSaleDate(sale.getSaleDate());
         saleCreateResponse.setTotal(sale.getTotal());
         saleCreateResponse.setState(sale.getState());
+        saleCreateResponse.setQuantityStockOfProductsSaled(sale.getQuantityStockOfProductsSaled());
         ClientCreateResponse clientCreateResponse = clientMapper.fromClientToClientCreateResponse(sale.getClient());
         saleCreateResponse.setClient(clientCreateResponse);
-        List<ProductCreateResponse> productsCreateResponseList = productMapper.fromProductListToProductCreateResponseList(sale.getProducts());
+        List<ProductListResponse> productsCreateResponseList = productMapper.fromProductListToProductListResponseList(sale.getProducts());
         saleCreateResponse.setProducts(productsCreateResponseList);
         return saleCreateResponse;
     }
@@ -78,6 +89,7 @@ public class SaleMapper {
         saleResponse.setSaleDate(sale.getSaleDate());
         saleResponse.setTotal(sale.getTotal());
         saleResponse.setState(sale.getState());
+        saleResponse.setQuantityStockOfProductsSaled(sale.getQuantityStockOfProductsSaled());
         ClientCreateResponse clientCreateResponse = clientMapper.fromClientToClientCreateResponse(sale.getClient());
         saleResponse.setClient(clientCreateResponse);
         List<ProductResponse> productsCreateResponseList = productMapper.fromProductListToProductResponseList(sale.getProducts());
@@ -90,6 +102,7 @@ public class SaleMapper {
         oldSale.setSaleDate(newSale.getSaleDate());
         oldSale.setTotal(newSale.getTotal());
         oldSale.setState(newSale.getState());
+        oldSale.setQuantityStockOfProductsSaled(newSale.getQuantityStockOfProductsSaled());
         oldSale.setClient(newSale.getClient());
         oldSale.setProducts(newSale.getProducts());
         return oldSale;
@@ -101,6 +114,7 @@ public class SaleMapper {
         sale.setSaleDate(request.getSaleDate());
         sale.setTotal(request.getTotal());
         sale.setState(request.getState());
+        sale.setQuantityStockOfProductsSaled(request.getQuantityStockOfProductsSaled());
         Client client = clientMapper.fromClientCreateRequestToClient(request.getClient());
         sale.setClient(client);
         List<Product> productsCreateRequestList = productMapper.fromProductCreateRequestListToProductList(request.getProducts());
@@ -115,12 +129,11 @@ public class SaleMapper {
         saleUpdateByIdResponse.setSaleDate(sale.getSaleDate());
         saleUpdateByIdResponse.setTotal(sale.getTotal());
         saleUpdateByIdResponse.setState(sale.getState());
+        saleUpdateByIdResponse.setQuantityStockOfProductsSaled(sale.getQuantityStockOfProductsSaled());
         ClientUpdateByIdResponse clientUpdateByIdResponse = clientMapper.fromClientToClientUpdateByIdResponse(sale.getClient());
         saleUpdateByIdResponse.setClient(clientUpdateByIdResponse);
         List<ProductResponse> productsResponse = productMapper.fromProductListToProductResponseList(sale.getProducts());
         saleUpdateByIdResponse.setProducts(productsResponse);
         return saleUpdateByIdResponse;
     }
-
-
 }

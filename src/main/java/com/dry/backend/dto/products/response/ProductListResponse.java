@@ -1,45 +1,20 @@
-package com.dry.backend.domain.products;
-
-
-import com.dry.backend.domain.sale.Sale;
-
-import javax.persistence.*;
-import java.util.List;
+package com.dry.backend.dto.products.response;
 
 /**
  * @author Bruno Ramirez
  **/
+public class ProductListResponse {
 
-@Entity
-@Table(name = "product")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
     private Long id;
-
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Lob
-    @Column(name = "description", length = 10000000)
     private String description;
-
-    @Lob
-    @Column(name = "image", length = 10000000)
     private String image;
-
-    @Column(name = "purchase_price", nullable = false)
     private Double purchasePrice;
-
-    @Column(name = "sale_price", nullable = false)
     private Double salePrice;
-
-    @Column(name = "stock")
     private Integer stock;
 
-    @ManyToMany(mappedBy = "products")
-    private List<Sale> sales;
+    public ProductListResponse() {
+    }
 
     public Long getId() {
         return id;
@@ -95,13 +70,5 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
-    }
-
-    public List<Sale> getSales() {
-        return sales;
-    }
-
-    public void setSales(List<Sale> sales) {
-        this.sales = sales;
     }
 }

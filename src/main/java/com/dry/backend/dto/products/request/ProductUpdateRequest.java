@@ -11,7 +11,7 @@ public class ProductUpdateRequest {
     private String image;
     private Double purchasePrice;
     private Double salePrice;
-    private Double stock;
+    private Integer stock;
     public ProductUpdateRequest() {
     }
 
@@ -55,11 +55,11 @@ public class ProductUpdateRequest {
         this.salePrice = salePrice;
     }
 
-    public Double getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(Double stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 }

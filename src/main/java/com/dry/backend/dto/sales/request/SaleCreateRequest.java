@@ -1,11 +1,8 @@
 package com.dry.backend.dto.sales.request;
 
-import com.dry.backend.domain.client.Client;
-import com.dry.backend.domain.products.Product;
 import com.dry.backend.dto.clients.request.ClientCreateRequest;
-import com.dry.backend.dto.products.request.ProductCreateRequest;
+import com.dry.backend.dto.products.request.ProductListInSaleRequest;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -23,9 +20,23 @@ public class SaleCreateRequest {
 
     private Boolean state;
 
+    private List<Integer> quantityStockOfProductsSaled;
     private ClientCreateRequest client;
 
-    private List<ProductCreateRequest> products;
+    private List<ProductListInSaleRequest> products;
+
+
+    public SaleCreateRequest() {
+    }
+
+
+    public List<Integer> getQuantityStockOfProductsSaled() {
+        return quantityStockOfProductsSaled;
+    }
+
+    public void setQuantityStockOfProductsSaled(List<Integer> quantityStockOfProductsSaled) {
+        this.quantityStockOfProductsSaled = quantityStockOfProductsSaled;
+    }
 
     public String getCode() {
         return code;
@@ -39,8 +50,8 @@ public class SaleCreateRequest {
         return saleDate;
     }
 
-    public void setDateSale(Date dateSale) {
-        this.saleDate = dateSale;
+    public void setSaleDate(Date saleDate) {
+        this.saleDate = saleDate;
     }
 
     public Double getTotal() {
@@ -67,11 +78,11 @@ public class SaleCreateRequest {
         this.client = client;
     }
 
-    public List<ProductCreateRequest> getProducts() {
+    public List<ProductListInSaleRequest> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductCreateRequest> products) {
+    public void setProducts(List<ProductListInSaleRequest> products) {
         this.products = products;
     }
 }
