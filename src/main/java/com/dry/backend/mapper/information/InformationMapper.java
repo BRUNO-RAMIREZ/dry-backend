@@ -16,7 +16,7 @@ public class InformationMapper {
         InformationGetByIdResponse response = new InformationGetByIdResponse();
         response.setId(information.getId());
         response.setTitle(information.getTitle());
-        response.setDescription(information.getTitle());
+        response.setDescription(information.getDescription());
         response.setPhone(information.getPhone());
         response.setDirection(information.getDirection());
         response.setEmail(information.getEmail());
